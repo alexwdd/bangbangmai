@@ -146,7 +146,7 @@ export default {
                 this.$toast.clear();
                 let res = result.data;        
                 if (res.code == 1) {
-                    console.log(res.body.token);
+                    //console.log(res.body.token);
                     this.$store.commit("SET_TOKEN", res.body.token);
                     this.$dialog.alert({title:'消息',message:res.desc})
                     .then(() => {
