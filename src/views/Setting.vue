@@ -64,11 +64,11 @@ export default {
         };
     },
     watch:{
-    	$route(to,from){
-		    if (to.path=='/setting') {		    	
-		    	this.getData();
-		    }
-		}
+        $route(to,from){
+            if(to.path=='/setting'){
+                this.getData();
+            }
+        }    
     },
     created(){	
         this.getData();

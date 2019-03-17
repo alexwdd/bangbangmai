@@ -94,7 +94,6 @@ export default {
         },
         saveFeedback(){
             var that = this;
-            console.log(that.formData);
             if(that.formData.title==''){
                 that.$dialog.alert({title:'错误信息',message:'请输入标题'});
                 return false;

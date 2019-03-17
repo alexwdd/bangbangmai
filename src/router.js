@@ -19,6 +19,7 @@ import Detail from "./views/Detail";
 import Feedback from "./views/Feedback";
 import Reglink from "./views/Reglink";
 import Qreg from "./views/Qreg";
+import Reset from "./views/Reset";
 
 Vue.use(Router);
 
@@ -139,6 +140,12 @@ export default new Router({
             name: "reg",
             meta:{index:2},
             component: Qreg
+        },
+        {
+            path: "/reset",
+            name: "reset",
+            meta:{index:1},
+            component: Reset
         },
     ]
 });

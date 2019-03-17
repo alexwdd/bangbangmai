@@ -16,14 +16,9 @@
                     v-model="ruleForm.password"
                     type="password"
                     placeholder="请输入密码"
-                />
-                <!-- <van-field
-                    v-model="ruleForm.password"
-                    type="password"
-                    placeholder="请输入密码"
                     right-icon="question-o"
                     @click-right-icon="forget"
-                /> -->
+                />
             </li>
 
             <li style="padding-top:10px;border-bottom:0">
@@ -52,7 +47,7 @@ export default {
                 title: '提示',
                 message: '忘记密码？'
             }).then(() => {
-                
+                this.$router.push({path:"/reset"});
             })
         },
         login() {
