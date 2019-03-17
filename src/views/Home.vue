@@ -83,8 +83,10 @@
 				</router-link>
 			</li>
 		</div>
-		<div style="padding:0 14px;">
-            <van-button class="my-btn" size="large" @click="feedback"><van-icon name="edit" /> 意见反馈</van-button>
+		
+		<div class="homeBtn">
+			<li><van-button class="my-btn" size="large" @click="qrlink"><van-icon name="qr" /> 推广链接</van-button></li>
+			<li><van-button class="my-btn" size="large" @click="feedback"><van-icon name="edit" /> 投诉建议</van-button></li>
         </div>
 
 		<div class="kefu">
@@ -118,6 +120,9 @@ export default {
     methods: {
 		feedback(){
 			this.$router.push({path:'/feedback'});
+		},
+		qrlink(){
+			this.$router.push({path:'/reglink'});
 		},
 		showNotice(){
 			this.$router.push({name: 'detail', params: { id: this.notice.id }});
@@ -180,4 +185,6 @@ export default {
 .kefu p{margin: 5px 0;clear: both;}
 .kefu p i{color: #e14546; font-size:20px; display: block; width: 30%; text-align: right; float: left;}
 .kefu p span{display: block; float: left; padding-left: 10px; font-size: 14px}
+.homeBtn{clear: both; padding-right: 14px;}
+.homeBtn li{float: left; width: 50%; padding-left: 14px; box-sizing: border-box}
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <van-nav-bar title="意见反馈" left-arrow @click-left="onClickLeft"  @click-right="onClickRight">
+        <van-nav-bar title="投诉建议" left-arrow @click-left="onClickLeft"  @click-right="onClickRight">
         <van-icon name="edit" slot="right" />
         </van-nav-bar>
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">

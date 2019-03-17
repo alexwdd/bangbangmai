@@ -14,7 +14,7 @@
         </div>
 
         <div class="group">
-            <van-cell title="意见反馈" is-link to="/feedback"/>
+            <van-cell title="投诉建议" is-link to="/feedback"/>
             <van-cell title="重置密码" is-link to="/password"/>
         </div>
 
