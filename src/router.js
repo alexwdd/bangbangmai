@@ -20,6 +20,7 @@ import Feedback from "./views/Feedback";
 import Reglink from "./views/Reglink";
 import Qreg from "./views/Qreg";
 import Reset from "./views/Reset";
+import Download from "./views/Download";
 
 Vue.use(Router);
 
@@ -146,6 +147,12 @@ export default new Router({
             name: "reset",
             meta:{index:1},
             component: Reset
+        },
+        {
+            path: "/download",
+            name: "download",
+            meta:{index:2},
+            component: Download
         },
     ]
 });

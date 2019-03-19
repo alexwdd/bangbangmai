@@ -9,12 +9,10 @@
             <van-cell title="真实姓名" is-link :value="user.name" @click="showName"/>
             <van-cell title="手机号" is-link :value="user.mobile" to="/phone"/>
             <van-cell title="微信号" is-link :value="user.wechat" @click="showWechat"/>           
-            <van-cell title="推广链接" is-link to="/reglink" v-if="user.star > 0"/>
             <van-cell title="二维码名片" is-link to="/qrcode"/>
         </div>
 
         <div class="group">
-            <van-cell title="投诉建议" is-link to="/feedback"/>
             <van-cell title="重置密码" is-link to="/password"/>
         </div>
 

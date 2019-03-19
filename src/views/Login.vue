@@ -16,15 +16,19 @@
                     v-model="ruleForm.password"
                     type="password"
                     placeholder="请输入密码"
-                    right-icon="question-o"
-                    @click-right-icon="forget"
                 />
             </li>
 
             <li style="padding-top:10px;border-bottom:0">
                 <van-button class="my-btn" size="large" @click="login">登录</van-button>  
             </li>
-            <p class="reg" @click="doReg">注册账号</p>
+            
+            <!-- <p class="reg" @click="doReg">用户注册</p>
+            <p class="reg" @click="forget">忘记密码</p> -->
+        </div>
+        <div class="bottomBtn">
+            <li><van-button plain type="primary" block size="small" @click="forget">忘记密码？</van-button></li>
+            <li><van-button plain type="primary" block size="small" @click="download">APP下载</van-button></li>
         </div>
 
     </div>
@@ -43,12 +47,10 @@ export default {
     created() {},
     methods: {
         forget(){
-            this.$dialog.confirm({
-                title: '提示',
-                message: '忘记密码？'
-            }).then(() => {
-                this.$router.push({path:"/reset"});
-            })
+            this.$router.push({path:"/reset"});
+        },
+        download(){
+            this.$router.push({path:"/download"});
         },
         login() {
             if (this.ruleForm.mobile == "") {
@@ -95,4 +97,6 @@ export default {
 .loginBox li i{display: block; width: 30px; color: #6bd9fd; font-size: 20px; line-height: 45px}
 .my-btn{color: #fff;background-color: #6bd9fd;border: 1px solid #6bd9fd; border-radius: 25px}
 .reg{clear: both; text-align: center; color: #6bd9fd;}
+.bottomBtn{clear: both; overflow: hidden; padding: 0 40px}
+.bottomBtn li {float: left; width: 50%; padding: 10px 20px; box-sizing: border-box}
 </style>

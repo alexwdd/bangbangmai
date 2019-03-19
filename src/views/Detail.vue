@@ -3,7 +3,7 @@
         <van-nav-bar title="文章详情" left-arrow @click-left="onClickLeft"/>
         <div class="title">{{info.title}}</div>
         <div class="date">{{info.time}}</div>
-        <div class="content">{{info.content}}</div>
+        <div class="content" v-html="info.content"></div>
     </div>
 </template>
 
