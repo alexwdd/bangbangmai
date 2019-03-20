@@ -1,6 +1,12 @@
 <template>
     <div class="app-container">
         <div class="routerBox">
+            <div v-show="welcome">
+                <div class="button" @click="cancel()">
+                    <span id="second">{{wait}}</span>S 点击跳过
+                </div>
+                <div class="welcome"></div>
+            </div>
             <transition :name="transitionName">
                 <keep-alive>
                     <router-view/>
@@ -14,7 +20,9 @@ export default {
     name: "app",
     data() {
         return {
+            welcome:true,
             user: [],
+            wait:5,
             activeIndex: "/",
             transitionName: ""
         };
@@ -34,9 +42,28 @@ export default {
             }
         }
     },
-    created() {},
-    mounted() {},
+    created() {
+        if(window.sessionStorage.getItem('welcome')){
+            this.welcome = false;
+        }else{
+            var timer = setInterval(()=>{
+                this.wait--;  
+                if(this.wait<=0){
+                    window.sessionStorage.setItem('welcome', 'over');
+                    this.welcome=false;
+                    clearInterval(timer);
+                }
+            }, 1000);
+        }        
+    },
+    mounted() {
+       
+    },
     methods: {
+        cancel(){
+            window.sessionStorage.setItem('welcome', 'over');
+            this.welcome=false;
+        },
         signout() {
             this.$store.commit("SIGN_OUT");
             this.$router.push({ path: "/login" });
@@ -47,6 +74,8 @@ export default {
 
 <style>
 body,html {width: 100%;height: 100%;}
+.button{position: absolute; right: 10px; top: 10px; z-index: 1000; border:1px #fff solid; line-height:24px; border-radius: 12px; font-size: 12px; color: #fff; padding: 0 10px}
+.welcome{width: 100%; height: 100vh; position:absolute; left: 0; top: 0;z-index: 999; background-image: url(./assets/image/01.png); background-size: cover}
 li{list-style: none;}
 img{max-width: 100%;}
 * {margin: 0;padding: 0;font-family:"Microsoft YaHei","微软雅黑","Microsoft JhengHei"}
