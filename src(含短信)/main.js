@@ -19,7 +19,7 @@ router.beforeEach((to, from, next) => {
     const token = store.state.token ? store.state.token : window.sessionStorage.getItem('token');
     if (token) {
         next();
-    } else if (to.path == '/login' || to.path == '/reg' || to.path == '/download' || to.path == '/reset') {
+    } else if (to.path == '/login' || to.path == '/reg' || to.path == '/download') {
         next();
     } else {
         next('login');

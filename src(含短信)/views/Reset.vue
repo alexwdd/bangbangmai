@@ -10,13 +10,16 @@
                     clearable
                     placeholder="请输入手机号码"
                 />
-                <van-field
-                    v-model="ruleForm.safepassword"
-                    type="password"
-                    clearable
-                    placeholder="请输入安全密码"
-                    required
-                />               
+                <van-field 
+                type="number"       
+                center
+                clearable
+                required
+                placeholder="请输入短信验证码"
+                v-model="ruleForm.code"
+                >
+                <van-button slot="button" size="small" :type="btnType" @click="getAuthCode">{{text}}</van-button>
+                </van-field>               
                 <van-field
                     v-model="ruleForm.password"
                     type="password"
@@ -66,7 +69,7 @@ export default {
                 mobile: "",
                 password: "",
                 repassword: "",
-                safepassword:""
+                code:""
             }
         },
         reset() {
@@ -78,8 +81,8 @@ export default {
                 this.$toast('手机号码格式错误');
                 return false;
             }
-            if (this.ruleForm.safepassword == "") {
-                this.$toast('请输入安全密码');
+            if (this.ruleForm.code == "") {
+                this.$toast('请输入短信验证码');
                 return false;
             }
             if (this.ruleForm.password == "") {

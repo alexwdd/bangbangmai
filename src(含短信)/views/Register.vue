@@ -22,20 +22,6 @@
                     placeholder="微信号"
                 />
                 <van-field
-                    v-model="ruleForm.paypassword"
-                    type="password"
-                    clearable
-                    placeholder="设置安全密码(用于找回密码)"
-                    required
-                />
-                <van-field
-                    v-model="ruleForm.repaypassword"
-                    type="password"
-                    clearable
-                    placeholder="再次输入密码"
-                    required
-                />
-                <van-field
                     v-model="ruleForm.password"
                     type="password"
                     clearable
@@ -83,8 +69,6 @@ export default {
                 mobile: "",
                 name: "",
                 wechat: "",
-                paypassword:"",
-                repaypassword:"",
                 password: "",
                 repassword: "",
             }
@@ -110,20 +94,8 @@ export default {
                 this.$toast('请输入微信号');
                 return false;
             }
-            if (this.ruleForm.paypassword == "") {
-                this.$toast('请设置安全密码');
-                return false;
-            }
-            if(!this.config.checkPassword(this.ruleForm.paypassword)){
-                this.$toast('密码长度应为6-20位之间');
-                return false;
-            }
-            if (this.ruleForm.paypassword != this.ruleForm.repaypassword) {
-                this.$toast('两次安全密码不同');
-                return false;
-            }
             if (this.ruleForm.password == "") {
-                this.$toast('请设置登录密码');
+                this.$toast('请设置密码');
                 return false;
             }
             if(!this.config.checkPassword(this.ruleForm.password)){
@@ -131,7 +103,7 @@ export default {
                 return false;
             }
             if (this.ruleForm.password != this.ruleForm.repassword) {
-                this.$toast('两次登录密码不同');
+                this.$toast('两次密码不同');
                 return false;
             }
             this.$toast.loading({mask: true,duration:0});
